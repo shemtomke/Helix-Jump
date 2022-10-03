@@ -15,7 +15,14 @@ public class HelixManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfRings; i++)
         {
-            SpawnRing(Random.Range(0, helixRings.Length -1));
+            if(i == 0)
+            {
+                SpawnRing(0);
+            }
+            else
+            {
+                SpawnRing(Random.Range(1 , helixRings.Length - 1));
+            }
         }
 
         SpawnRing(helixRings.Length - 1);
