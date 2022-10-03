@@ -15,8 +15,10 @@ public class HelixManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfRings; i++)
         {
-            SpawnRing(Random.Range(0, helixRings.Length));
+            SpawnRing(Random.Range(0, helixRings.Length -1));
         }
+
+        SpawnRing(helixRings.Length - 1);
     }
 
     // Update is called once per frame
