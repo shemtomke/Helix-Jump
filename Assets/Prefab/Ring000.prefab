@@ -500,6 +500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2750587366508739464}
   - component: {fileID: -3298234844374871150}
+  - component: {fileID: 8942800517361268132}
   m_Layer: 0
   m_Name: Ring000
   m_TagString: Untagged
@@ -544,6 +545,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 150
+--- !u!114 &8942800517361268132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271825608654348594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1e12a19cde6ad4698817e8b4d3ed5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4514075117607745835
 GameObject:
   m_ObjectHideFlags: 0
