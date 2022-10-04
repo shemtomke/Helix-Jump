@@ -19,16 +19,20 @@ public class GameManager : MonoBehaviour
     public GameObject startMenuPanel;
 
     public static int currentLevelIndex;
+    public static int score = 0;
 
     public Slider gameProgressSlider;
     public TextMeshProUGUI currentLevelText;
     public TextMeshProUGUI nextLevelText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
 
     public static int numberOfPassedRings = 0;
 
     private void Awake()
     {
         currentLevelIndex = PlayerPrefs.GetInt("CurrentLevelIndex", 1);
+        highScoreText.text = "Best Score\n" + PlayerPrefs.GetInt("HighScore", 0); ;
     }
     void Start()
     {
@@ -45,9 +49,11 @@ public class GameManager : MonoBehaviour
         int progress = numberOfPassedRings * 100 / FindObjectOfType<HelixManager>().numberOfRings;
         gameProgressSlider.value = progress;
 
-        if(Input.GetMouseButton(0) && !isGameStarted)
+        scoreText.text = score.ToString();
+
+        if((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && !isGameStarted)
         {
-            if (EventSystem.current.IsPointerOverGameObject())
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
                 return;
 
             isGameStarted = true;
@@ -62,6 +68,12 @@ public class GameManager : MonoBehaviour
 
             if(Input.GetButtonDown("Fire1"))
             {
+                if(score > PlayerPrefs.GetInt("HighScore", 0))
+                {
+                    PlayerPrefs.SetInt("HighScore", score);
+                }
+
+                score = 0;
                 SceneManager.LoadScene("Level");
             }
         }
