@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
         if((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && !isGameStarted)
         {
-            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+            if (/*EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) || */EventSystem.current.IsPointerOverGameObject())
                 return;
 
             isGameStarted = true;
